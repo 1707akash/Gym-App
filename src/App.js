@@ -1,11 +1,14 @@
 
 import './App.css';
-import Trial from './Components/Trial';
+import Hero from './Components/Hero';
+// import Trial from './Components/Trial';
+
 
 function App() {
   return (
     <div className="App">
-      <Trial />
+      {/* <Trial /> */}
+      <Hero />
       
     </div>
   );
