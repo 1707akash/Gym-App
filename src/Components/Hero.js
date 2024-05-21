@@ -32,23 +32,24 @@ const Hero = () => {
     const data = response.data;
     setApiData(data)
     setGymdata(data)
-    // console.log(apiData);
   }
 
 
   useEffect(()=>{
     fetchData()
-  },[])
+  },[searchValue])
 
   const onClickHandler =()=>{
-    setGymdata(apiData)
+    // setGymdata(apiData);
+    let searchKey = searchValue;
     let filteredList = gymData.filter((elem)=>{
       return (
-        elem.bodyPart.toLowerCase().includes(searchValue.toLowerCase())
+        elem.bodyPart.toLowerCase().includes(searchKey.toLowerCase())
       )
     })
 
     setGymdata(filteredList)
+    
   }
 
   
@@ -80,7 +81,8 @@ const Hero = () => {
     {/* ..........HERE IS IMAGE RENDERING.........  */}
 
     <div className='exerciseDiv'>
-    <input type="text" value={searchValue} onInput={(e)=>setSeachValue(e.target.value)} />
+    <label htmlFor="">Seach Body part: </label>
+    <input type="text" id='part' value={searchValue} onChange={(e)=>setSeachValue(e.target.value)} />
     <button onClick={onClickHandler} >Search</button>
 
     <div className="allExercise">
